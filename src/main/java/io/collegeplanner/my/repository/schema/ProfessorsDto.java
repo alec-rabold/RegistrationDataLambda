@@ -2,8 +2,10 @@ package io.collegeplanner.my.repository.schema;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class ProfessorsDto implements Comparable<ProfessorsDto> {
     private String name;

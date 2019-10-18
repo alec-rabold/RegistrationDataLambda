@@ -5,9 +5,11 @@ import io.collegeplanner.my.repository.schema.CoursesDto;
 import io.collegeplanner.my.repository.schema.ProfessorsDto;
 import lombok.Getter;
 
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
-import java.io.*;
 
 import static io.collegeplanner.my.util.Constants.REGISTRATION_SEARCH_PAGE_SDSU;
 
@@ -312,9 +314,9 @@ public class RegistrationScraper {
 
     public void iterateTermsForYear(final String year) {
         try {
-            this.setTerm("Fall", year);
-            this.iterateAll();
             this.setTerm("Spring", year);
+            this.iterateAll();
+            this.setTerm("Fall", year);
             this.iterateAll();
         }
         catch(final Exception e) {

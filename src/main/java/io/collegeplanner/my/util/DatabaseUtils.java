@@ -5,6 +5,7 @@ import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 public class DatabaseUtils {
     public static Jdbi getDatabaseConnection() {
-        return DatabaseConnection.getDatabaseConnection().installPlugin(new SqlObjectPlugin());
+        return DatabaseConnection.getDatabaseConnection()
+                .installPlugin(new SqlObjectPlugin());
     }
 }

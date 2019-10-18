@@ -4,7 +4,6 @@ import io.collegeplanner.my.repository.schema.CoursesDto;
 import io.collegeplanner.my.repository.schema.ProfessorsDto;
 import lombok.Data;
 
-import java.util.Map;
 import java.util.Set;
 
 @Data
