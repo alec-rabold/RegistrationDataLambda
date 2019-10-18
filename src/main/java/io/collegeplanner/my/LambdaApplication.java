@@ -9,9 +9,9 @@ public class LambdaApplication {
         final LambdaLogger logger = context.getLogger();
         try {
             RegistrationDataService.updateRegistrationData();
+            logger.log("Course registration data updated.");
         } catch(final Exception e) {
             logger.log(e.toString());
         }
-        logger.log("Course registration data updated.");
     }
 }

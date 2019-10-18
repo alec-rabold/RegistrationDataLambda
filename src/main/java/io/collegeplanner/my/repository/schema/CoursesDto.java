@@ -14,6 +14,6 @@ public class CoursesDto implements Comparable<CoursesDto> {
 
     @Override
     public int compareTo(final CoursesDto other) {
-        return this.id.compareTo(other.id);
+        return this.id.compareToIgnoreCase(other.id);
     }
 }

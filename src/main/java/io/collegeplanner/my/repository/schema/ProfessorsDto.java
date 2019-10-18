@@ -13,6 +13,6 @@ public class ProfessorsDto implements Comparable<ProfessorsDto> {
 
     @Override
     public int compareTo(final ProfessorsDto other) {
-        return this.name.compareTo(other.name);
+        return this.name.compareToIgnoreCase(other.name);
     }
 }

@@ -56,7 +56,7 @@ public class RegistrationScraper {
         Course temp = new Course();
         List<Course> tempList = new ArrayList<Course>();
 
-        System.out.println(Registration_URL.toString());
+//        System.out.println(Registration_URL.toString());
 
 
         try {
@@ -183,7 +183,7 @@ public class RegistrationScraper {
             }
         }
         catch(NullPointerException e) {
-            System.out.print("  <-- No courses for this department in selected ");
+//            System.out.print("  <-- No courses for this department in selected ");
         }
 
         // **NEW**
@@ -251,10 +251,11 @@ public class RegistrationScraper {
 
             final List<Course> deptCourseList = departments.get(dept);
             for(Course crs : deptCourseList) {
-                courses.add(new CoursesDto(crs.courseID, crs.title, crs.courseID));
+                courses.add(new CoursesDto(crs.courseID, crs.courseID, crs.title));
                 for(int k = 0; k < crs.instructors.size(); k++){
                     // A. Narang --> Narang, A.
-                    final String name = crs.instructors.get(k).substring(3) + ", " + crs.instructors.get(k).substring(0, 3).toUpperCase();
+                    final String unformattedName = crs.instructors.get(k);
+                    final String name = (unformattedName.substring(3) + ", " + unformattedName.substring(0, 3).toUpperCase()).replaceAll("[^a-zA-Z ]", "");
                     professors.add(new ProfessorsDto(name, name));
                 }
             }
@@ -315,6 +316,8 @@ public class RegistrationScraper {
     public void iterateTermsForYear(final String year) {
         try {
             this.setTerm("Spring", year);
+            this.iterateAll();
+            this.setTerm("Summer", year);
             this.iterateAll();
             this.setTerm("Fall", year);
             this.iterateAll();
